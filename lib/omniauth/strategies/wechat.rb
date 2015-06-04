@@ -37,7 +37,7 @@ module OmniAuth
 
       def request_phase
         # custom
-        role = request.params[:role] || "talent"
+        role = request.params["role"] || "talent"
         session[:role] = role
         
         params = client.auth_code.authorize_params.merge(redirect_uri: callback_url).merge(authorize_params)
